@@ -37,7 +37,7 @@ const pizza = {
     category: 'entree',
     popularity: 8.5,
     rating: 9,
-    tags: 'vegetarian, gluten free'
+    tags: ['vegetarian', 'gluten-free']
 }
 
 
@@ -61,7 +61,7 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-console.log(pizza['tags'])
+console.log(pizza.tags[1])
 
 
 /*
@@ -99,15 +99,54 @@ console.log(pizza.category)
 */
 
 //CODE HERE
-const foodArr = {
-    name: 'brownie',
-     price: 10, 
-     category:'dessert',
-     popularity: 10,
-     rating: 8.5,
-     tags: 'sweet'
-}
+const foodArr = [
+  {
+    name: "brownie",
+    price: 9.99,
+    category: "dessert",
+    popularity: 10,
+    rating: 8.5,
+    tags: ["sweet", "delicous"],
+  },
+  {
+    name: "pepperoni pizza",
+    price: 12.99,
+    category: "entree",
+    popularity: 9,
+    rating: 9,
+    tags: ["greasy", "meaty"],
+  },
+  {
+    name: "donut",
+    price: 2.99,
+    category: "breakfast",
+    popularity: 10,
+    rating: 10,
+    tags: ["cheap", "family-friendly"],
+  },
+  {
+    name: "BLT",
+    price: 5.99,
+    category: "lunch",
+    popularity: 8,
+    rating: 8.5,
+    tags: ["healthy", "veggies"],
+  },
+  {
+    name: "strawberries",
+    price: 4.99,
+    category: "fruit",
+    popularity: 9,
+    rating: 8,
+    tags: ["healthy", "sweet"],
+  },
+];
 
+
+const filteredFood = foodArr.filter((foodobj) => {
+    return foodobj.tags.includes("healthy")
+})
+console.log(filteredFood)
 
 
 //////////////////PROBLEM 4////////////////////
@@ -123,14 +162,8 @@ const foodArr = {
 */
 
 //CODE HERE
-
-function Find (arr1, arr2, callback) {
-    callback(pizza, foodArr, tags)
-}
-
-const filteredFood = foodArr.filter(tags)
-
-
+const filterByTag = callback => foodArr.filter(food => callback(food))
+const food = filterByTag(food => food.tags.includes("healthy"))
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -171,9 +204,19 @@ const filteredFood = foodArr.filter(tags)
     Return the filtered array from the entire function
 */
 
+
 //CODE HERE
-
-
+function filterByProperty (property, number, type) {
+    let filteredArray = foodArr.filter((foodobj) => {
+        if (type === 'above') {
+            return foodobj[property] > number
+        } else if (type === 'below') {
+            return foodobj[property] < number
+        }
+    } )
+    return filteredArray
+}
+    
 /*
     Invoke the `filterByProperty` function passing
     in a value for each paramter.
@@ -182,3 +225,5 @@ const filteredFood = foodArr.filter(tags)
 */
 
 //CODE HERE
+
+console.log(filterByProperty('rating', 6, 'above'))

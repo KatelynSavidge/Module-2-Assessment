@@ -34,9 +34,11 @@ const cart = [
 ]
 
 //CODE HERE
+const summedPrice = cart.reduce((a,c) => {
+    return a+c.price
+}, 0)
 
-
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+console.log(summedPrice)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -56,9 +58,10 @@ const cart = [
 
 //CODE HERE
 function calcFinalPrice (cartTotal, couponValue, tax) {
-    
+    return cartTotal + (cartTotal * tax) - couponValue
 }
 
+console.log(calcFinalPrice(10, 2, 0.05))
 
 
 //////////////////PROBLEM 3////////////////////
@@ -83,6 +86,10 @@ function calcFinalPrice (cartTotal, couponValue, tax) {
 
 /*
     TEXT ANSWER HERE
+    name: (string), customer orders need a name so the restraunt knows who the order is for
+    address: (string), need a location to send orders to
+    phone number: (number), to contact the customer
+    marketingEmails: (boolean): asks whether the customer wants to subscribe to marketing emails ot not
 
 */
 
@@ -92,3 +99,9 @@ function calcFinalPrice (cartTotal, couponValue, tax) {
 */
 
 //CODE HERE
+let custObj = {
+    name: "Charli",
+    address: "6336 Green Ridge Dr, Fort Worth, TX 76201",
+    phone: 8172221234,
+    marketingEmails: false,
+}

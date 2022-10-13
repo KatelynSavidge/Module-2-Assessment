@@ -54,7 +54,7 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
 function canWeDeliver (zipCode) {
-    for (i=0; i<deliveryAreaZipCodes; i++) {
+    for (i=0; i<deliveryAreaZipCodes.length; i++) {
         if (zipCode === deliveryAreaZipCodes[i]){
             return "You're in the delivery zone!"
         } 
@@ -83,11 +83,10 @@ function canWeDeliver (zipCode) {
 
 // CODE HERE
 function canWeDeliverTwo (zipCode) {
-    for (i=0; i<deliveryAreaZipCodes; i++) {
-        if (zipCode.includes(deliveryAreaZipCodes[i])){
+        if (deliveryAreaZipCodes.includes(zipCode)){
             return "You're in the delivery zone!"
         } 
-    }
+
     return 'Sorry, we can not deliver.'
  }
 // console.log(canWeDeliverTwo('85205'))
@@ -126,9 +125,8 @@ const deals = [
 */
 
 //CODE HERE
-deals(replace('15','10'))
-
-
+deals[0].title = deals[0].title.replace('15','10')
+console.log(deals)
 
 /*
     The restaurant is going to continue its
@@ -144,6 +142,5 @@ deals(replace('15','10'))
 */
 
 //CODE HERE
-deals(replace('march','april'))
-
+deals[1].desc = deals[1].desc.replace('March','April').trim()
 console.log(deals)

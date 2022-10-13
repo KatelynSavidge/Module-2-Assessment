@@ -25,8 +25,8 @@ class Employee {
         this.name = name
         this.shifts = shifts
     } 
-    schedule( ){
-    console.log(`${name} works on ${shifts}`)
+    getSchedule(){
+    console.log(`${this.name} works on ${this.shifts}`)
     }
 }
 
@@ -41,7 +41,7 @@ class Employee {
 */
 
 //CODE HERE
-let emp0ne = new Employee ('Jess', 'weekday mornings')
+const emp0ne = new Employee ('Jess', 'weekday mornings')
 
 
 /*
@@ -50,7 +50,7 @@ let emp0ne = new Employee ('Jess', 'weekday mornings')
 */
 
 //CODE HERE
-Employee.schedule()
+emp0ne.getSchedule()
 
 
 /*
@@ -66,7 +66,8 @@ Employee.schedule()
 */
 
 //CODE HERE
-
+const empTwo = {...emp0ne, name: 'Nick'}
+console.log(empTwo)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -93,8 +94,20 @@ Employee.schedule()
 */
 
 //CODE HERE
+class Manager extends Employee {
+    constructor (name, shifts, employees) {
+        super(name, shifts)
+        this.employees = employees
+    }
+    getEmployees () {
+        console.log(`${this.name} manages ${this.employees}`)
+}
 
+    addEmployee(emp) {
+        this.employees.push(emp)
+    }
 
+}
 
 /*
     Create a new instance of your class.
@@ -108,6 +121,7 @@ Employee.schedule()
 */
 
 //CODE HERE
+let manager = new Manager('Winston', 'weekday mornings, weekday afternoons', ['cece', 'schmidt'])
 
 
 /*
@@ -116,6 +130,7 @@ Employee.schedule()
 */
 
 //CODE HERE
+manager.getEmployees()
 
 /*
     Call the `addEmployee` method on the 
@@ -124,6 +139,7 @@ Employee.schedule()
 */
 
 //CODE HERE 
+manager.addEmployee('coach')
 
 /*
     Call the `getEmployees` method on the
@@ -132,3 +148,4 @@ Employee.schedule()
 */
 
 //CODE HERE
+manager.getEmployees()
